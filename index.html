@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM practice</title>
+</head>
+
+<body>
+    <h1 style="color: red ;">Document Object Manipulation Practice</h1>
+    <div class="container">
+        <p>An object that represents HTML 1:1</p>
+        <p>JS, HTML, and CSS coming together!</p>
+    </div>
+
+    <button>Click me!</button>
+
+</body>
+<script>
+    
+
+var container = document.createElement('div');
+
+container.classList.add('container');
+
+container.style.border = '1px solid black';
+
+document.body.appendChild(container);
+
+var copy = ["Yesterday was good", "Today is great", "Tomorrow will be better"];
+
+copy.forEach(function(copyItem) {
+  
+  var paragraphItem = document.createElement('p');
+  paragraphItem.textContent = copyItem;
+  container.appendChild(paragraphItem);
+})
+
+var button = document.createElement('button');
+
+button.textContent = 'enable Dark Mode'
+
+button.style.cssText = 'padding: 15px; border: none; background-color: black; color: white';
+
+container.appendChild(button);
+
+var darkModeIsActive = false;
+
+
+button.addEventListener('click', function() {
+  if (darkModeIsActive) {
+    document.body.style.backgroundColor = 'white';
+  container.style.cssText = 'background-color: #777; color: black;';
+  button.style.cssText = 'padding: 15px; border: none; background-color: black; color: white';
+  button.textContent = 'enable dark mode';
+  darkModeIsActive = false;  
+    
+  } else {
+  document.body.style.backgroundColor = 'black';
+  container.style.cssText = 'background-color: #777; color: white;';
+  button.style.cssText = 'padding: 15px; border: none; background-color: white; color: black';
+    darkModeIsActive = true;
+  }
+  
+  
+  
+})
+
+
+
+</script>
+
+</html>
